@@ -1,0 +1,23 @@
+<app-header></app-header>
+<br>
+<div class="row" infinite-scroll>
+    <div class="col-xs-6 col-sm-6 col-md-3" *ngFor="let producto of productos">
+        <div class="card" style="width:300px;">
+            <img  class="card-img-top rounded" src="https://gestion.promo.ec{{producto.imagenes}}">
+            <div class="card-body">
+              <h4 class="card-title">{{producto.nombre}}</h4>
+              <p class="card-text"><b>Descripción: </b>{{producto.descripcion}}</p>
+              <p class="card-text"><b>Precio: </b>${{producto.precio}}</p>
+              <p class="card-text"><b>Stock: </b>${{producto.stock}}</p>
+              <a class="btn btn-warning" (click)="addCarrito()">Agregar al carrito</a>
+            </div>
+        </div>
+    </div>
+    <div
+      class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound"
+      *ngIf="productos.length <= 0"
+      >
+      <p>No hay productos.......</p>
+    </div>
+</div>
+<br>
